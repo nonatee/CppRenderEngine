@@ -18,7 +18,7 @@ struct Camera {
 		return GetCamRight().CrossProduct(lookDir).Normalized();
     }
 	void RotateXZ(float angle) {
-		angle = angle * (3.14159265358979323846f / 180.0f); // Convert degrees to radians
+		angle = angle * (3.14159265358979323846f / 180.0f);
 		float oldX = lookDir.x;
 		float oldZ = lookDir.z;
 
@@ -26,7 +26,7 @@ struct Camera {
 		lookDir.z = oldX * sin(angle) + oldZ * cos(angle);
 	}
 	void RotateXY(float angle) {
-		angle = angle * (3.14159265358979323846f / 180.0f); // Convert degrees to radians
+		angle = angle * (3.14159265358979323846f / 180.0f);
 		float oldX = lookDir.x;
 		float oldY = lookDir.y;
 
@@ -34,14 +34,14 @@ struct Camera {
 		lookDir.y = oldX * sin(angle) + oldY * cos(angle);
 	}
 	Vector3D RotatedXZ(float angle) {
-		angle = angle * (3.14159265358979323846f / 180.0f); // Convert degrees to radians
+		angle = angle * (3.14159265358979323846f / 180.0f);
 		Vector3D newVec = lookDir;
 		newVec.x = lookDir.x * cos(angle) - lookDir.z * sin(angle);
 		newVec.z = lookDir.x * sin(angle) + lookDir.z * cos(angle);
 		return newVec;
 	}
 	Vector3D RotatedXY(float angle) {
-		angle = angle * (3.14159265358979323846f / 180.0f); // Convert degrees to radians
+		angle = angle * (3.14159265358979323846f / 180.0f);
 		Vector3D newVec = lookDir;
 		newVec.x = lookDir.x * cos(angle) - lookDir.y * sin(angle);
 		newVec.y = lookDir.x * sin(angle) + lookDir.y * cos(angle);

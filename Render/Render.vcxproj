@@ -130,20 +130,6 @@
       <GenerateDebugInformation>true</GenerateDebugInformation>
     </Link>
   </ItemDefinitionGroup>
-  <ItemGroup>
-    <ClCompile Include="Projection.cpp" />
-    <ClCompile Include="Vector.h" />
-    <ClCompile Include="RenderMain.cpp" />
-    <ClCompile Include="FrameBuffer.cpp" />
-    <ClCompile Include="Tracing.cpp" />
-  </ItemGroup>
-  <ItemGroup>
-    <ClInclude Include="Camera.h" />
-    <ClInclude Include="Constants.h" />
-    <ClInclude Include="FrameBuffer.h" />
-    <ClInclude Include="Projection.h" />
-    <ClInclude Include="Tracing.h" />
-  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>
