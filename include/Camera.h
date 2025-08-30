@@ -25,13 +25,13 @@ struct Camera {
 		lookDir.x = oldX * cos(angle) - oldZ * sin(angle);
 		lookDir.z = oldX * sin(angle) + oldZ * cos(angle);
 	}
-	void RotateXY(float angle) {
+	void RotateZY(float angle) {
 		angle = angle * (3.14159265358979323846f / 180.0f);
-		float oldX = lookDir.x;
+		float oldZ = lookDir.z;
 		float oldY = lookDir.y;
 
-		lookDir.x = oldX * cos(angle) - oldY * sin(angle);
-		lookDir.y = oldX * sin(angle) + oldY * cos(angle);
+		lookDir.z = oldZ * cos(angle) - oldY * sin(angle);
+		lookDir.y = oldZ * sin(angle) + oldY * cos(angle);
 	}
 	Vector3D RotatedXZ(float angle) {
 		angle = angle * (3.14159265358979323846f / 180.0f);

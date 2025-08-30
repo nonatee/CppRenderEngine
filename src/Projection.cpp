@@ -13,7 +13,7 @@ Vector2D GetProjection(Camera camera, Vector3D objPos) {
 	}
 	Vector3D planeNormal = camera.lookDir;
 	Vector3D planePoint = camera.lookDir * camera.planeDistance + camera.position;
-	Vector3D intercept = Intercept(to, camera.position, planeNormal, planePoint) - camera.position- camera.lookDir * camera.planeDistance;
+	Vector3D intercept = Intercept(to, camera.position, planeNormal, planePoint) - camera.position;
 	if (intercept.GetLength() < 1e-6f || std::isnan(intercept.GetLength())) {
 		return(Vector2D(0,0));
 	}
@@ -22,7 +22,7 @@ Vector2D GetProjection(Camera camera, Vector3D objPos) {
 	//float dx = -intercept.GetLength() * cosa; WHY DOES THIS NOT WORK?
 	//float dy = intercept.GetLength() * sina;
 	float dx = intercept.DotProduct(camera.GetCamRight());
-	float dy = intercept.DotProduct(camera.GetCamUp());
+	float dy = intercept.DotProduct(camera.GetCamUp()) / 1.0f;
+	std::cout << dx << " " << dy << "\n";
 	return Vector2D(WIDTH / 2 + dx, HEIGHT / 2 + dy);
-
 };

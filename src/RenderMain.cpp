@@ -34,9 +34,9 @@ int main(int argc, char* argv[]) {
 		int pitch;
 		setToWhite();
 		
-		Vector3D point1(0, 10, 10);
-		Vector3D point2(-10, 0, 10);
-		Vector3D point3(10, 0, 10);
+		Vector3D point1(0, 1, 15);
+		Vector3D point2(-1, 0, 15);
+		Vector3D point3(1, 0, 15);
 		Vector2D pos1(GetProjection(camera,point1));
 		Vector2D pos2(GetProjection(camera, point2));
 		Vector2D pos3(GetProjection(camera, point3));
@@ -64,10 +64,10 @@ int main(int argc, char* argv[]) {
 			camera.position = camera.position + camera.GetCamRight();
 		}
 		if (keyState[SDL_SCANCODE_UP]) {
-			camera.RotateXY(10);
+			camera.RotateZY(10);
 		}
 		if (keyState[SDL_SCANCODE_DOWN]) {
-			camera.RotateXY(-10);
+			camera.RotateZY(-10);
 		}
 		if (keyState[SDL_SCANCODE_LEFT]) {
 			camera.RotateXZ(10);
@@ -76,7 +76,7 @@ int main(int argc, char* argv[]) {
 			camera.RotateXZ(-10);
 		}
 		if (keyState[SDL_SCANCODE_ESCAPE]) {
-			running = true;
+			running = false;
 		}
 		SDL_Delay(100);
 	}

@@ -6,20 +6,23 @@
 
 void TraceLine(Vector2D pos1, Vector2D pos2) {
 	//auto start = std::chrono::high_resolution_clock::now();
+	if (pos1.x < 0 || pos1.x >= WIDTH || pos1.y < 0 || pos1.y >= HEIGHT
+		|| std::isnan(pos1.x) || std::isnan(pos1.y)
+		|| std::isnan(pos2.x) || std::isnan(pos2.y)) {
+		return;
+	}
+	if (pos2.x < 0 || pos2.x >= WIDTH || pos2.y < 0 || pos2.y >= HEIGHT) {
+		return;
+	}
 	float divisor = 100;
 	float dx = (pos2.x - pos1.x);
 	float dy = (pos2.y - pos1.y);
 	int counter = 0;
+
 	for (float percentage = 0; percentage <= 1; percentage += 1/divisor) {
 		int pixelX = static_cast<int>(std::floor(pos1.x + dx * percentage + 0.5));
 		int pixelY = static_cast<int>(std::floor(pos1.y + dy * percentage + 0.5));
-
-		if (pixelX < 0 || pixelX >= WIDTH || pixelY < 0 || pixelY >= HEIGHT
-			|| std::isnan(pos1.x) || std::isnan(pos1.y)
-			|| std::isnan(pos2.x) || std::isnan(pos2.y)) {
-			return; // safely exit
-		}
-		framebuffer[static_cast<int>(std::floor(pos1.x + (dx) * percentage + 0.5f)) + WIDTH * static_cast<int>(std::floor(pos1.y + (dy) * percentage + 0.5f))] = black;
+		framebuffer[pixelX + WIDTH * pixelY] = black;
 		//std::cout << "x=" << pos1.x + dx * percentage << " y=" << pos1.y + dy * percentage << "\n";
 		counter++;
 	};
