@@ -1,5 +1,5 @@
 #include "Vector.h"
-#include "Framebuffer.h"
+#include "FrameBuffer.h"
 #include <cmath>
 #include <iostream>
 #include <chrono>

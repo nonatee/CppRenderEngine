@@ -2,7 +2,7 @@
 #include "Vector.h"
 #include <SDL.h>
 #include "Constants.h"
-#include "Framebuffer.h"
+#include "FrameBuffer.h"
 #include "Tracing.h"
 #include "Camera.h"
 #include "Projection.h"
@@ -34,9 +34,9 @@ int main(int argc, char* argv[]) {
 		int pitch;
 		setToWhite();
 		
-		Vector3D point1(0, 1, 15);
-		Vector3D point2(-1, 0, 15);
-		Vector3D point3(1, 0, 15);
+		Vector3D point1(0, 10, 15);
+		Vector3D point2(-10, 0, 15);
+		Vector3D point3(10, 0, 15);
 		Vector2D pos1(GetProjection(camera,point1));
 		Vector2D pos2(GetProjection(camera, point2));
 		Vector2D pos3(GetProjection(camera, point3));
